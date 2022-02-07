@@ -6,26 +6,25 @@ import java.util.Scanner;
  */
 
 public class Task15 {
-    public static char firstNonRepeated(String str) {
-        char ch = '0';
+    public static void firstNonRepeated(String str) {
         for (int i = 0; i < str.length(); i++) {
-            for (int j = 0; j < i; j++) {
-                if (str.charAt(i) == str.charAt(j)) {
-                    continue;
-                } else {
-                    ch = str.charAt(i);
+            boolean unique = true;
+            for (int j = 0; j < str.length(); j++) {
+                if (i != j && str.charAt(i) == str.charAt(j)) {
+                    unique = false;
+                    break;
                 }
-
+            }
+            if (unique) {
+                System.out.println("The first non repeated character in String is: " + str.charAt(i));
+                break;
             }
         }
-
-        return ch;
-
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
-        System.out.println(firstNonRepeated(str));
+        firstNonRepeated(str);
     }
 }

@@ -6,6 +6,8 @@ package homework.week4;
 
 import java.util.Scanner;
 
+
+
 public class Task21 {
     public static String removedX(String str) {
         String newStr = "";
@@ -23,11 +25,13 @@ public class Task21 {
         }
     }
     public static String removedXRecursion(String str){
-        if(str.charAt(0)=='x'|| str.charAt(0)=='X'){
-            return removedXRecursion(str.substring(1));
-        }else{
-            return str;
+        if(str.length()==0) {
+            return "";
         }
+        if (str.charAt(0) == 'x' || str.charAt(0)=='X') {
+            return removedXRecursion(str.substring(1));
+        }
+        return str.charAt(0) +  removedXRecursion(str.substring(1));
     }
 
     public static void main(String[] args) {
